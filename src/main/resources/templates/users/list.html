@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <!-- Adăugăm link-ul către fișierele CSS Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="mt-5">All Users</h1>
+  <table class="table mt-3">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.username}"></td>
+      <td>
+        <div class="d-flex">
+          <form th:action="@{/api/users/{id}/delete(id=${user.id})}" method="post">
+            <button class="btn btn-danger btn-sm mr-2" type="submit">Delete</button>
+          </form>
+          <a th:href="@{/api/users/{id}(id=${user.id})}" class="btn btn-primary btn-sm">Details</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="mt-5">Add User</h2>
+  <form th:action="@{/api/users}" method="post" th:object="${user}">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" class="form-control" th:field="*{username}">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" class="form-control" th:field="*{password}">
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+  </form>
+</div>
+
+<!-- Adăugăm script-urile JavaScript Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Add other content as needed -->
+</body>
+</html>

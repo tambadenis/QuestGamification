@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Rewards List</title>
+</head>
+<body>
+  <h1>Rewards List</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Points</th>
+      <th>Actions</th>
+    </tr>
+    <tr th:each="reward : ${rewards}">
+      <td th:text="${reward.id}"></td>
+      <td th:text="${reward.name}"></td>
+      <td th:text="${reward.points}"></td>
+      <td>
+        <a th:href="@{/api/rewards/{id}(id=${reward.id})}">View</a>
+        <a th:href="@{/api/rewards/{id}/edit(id=${reward.id})}">Edit</a>
+        <a th:href="@{/api/rewards/{id})(id=${reward.id})}" th:data-method="delete" th:data-confirm="Are you sure?">Delete</a>
+      </td>
+    </tr>
+  </table>
+  <a th:href="@{/api/rewards/new}">Add Reward</a>
+  </body>
+</html>

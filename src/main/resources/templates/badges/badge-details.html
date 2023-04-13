@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Badge Details</title>
+</head>
+  <body>
+  <h1>Badge Details</h1>
+  <p>ID: <span th:text="${badge.id}"></span></p>
+  <p>Name: <span th:text="${badge.name}"></span></p>
+  <p>Description: <span th:text="${badge.description}"></span></p>
+  <!-- Afișarea altor detalii despre badge -->
+  <!-- Buton pentru a edita badge-ul -->
+  <a th:href="@{/api/badges/{id}/edit(id=${badge.id})}">Edit Badge</a>
+  <!-- Buton pentru a șterge badge-ul -->
+  <form th:action="@{/api/badges/{id}(id=${badge.id})}" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="Delete Badge" />
+  </form>
+  <!-- Buton pentru a reveni la lista de badge-uri -->
+  <a th:href="@{/api/badges}">Back to Badge List</a>
+</body>
+</html>

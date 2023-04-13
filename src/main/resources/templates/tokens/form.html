@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Token Form</title>
+</head>
+<body>
+  <h1>Token Form</h1>
+  <form th:object="${token}" th:action="@{/api/tokens}" th:method="post">
+    <input type="hidden" th:field="*{id}" />
+    <p>Value: <input type="text" th:field="*{value}" /></p>
+    <p><input type="submit" value="Save" /> <a th:href="@{/api/tokens}">Cancel</a></p>
+  </form>
+</body>
+</html>

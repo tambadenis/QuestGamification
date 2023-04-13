@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Quest List</title>
+</head>
+<body>
+  <h1>Quest List</h1>
+  <ul>
+    <li th:each="quest : ${quests}">
+      <a th:href="@{/quests/{id}(id=${quest.id})}" th:text="${quest.name}"></a>
+    </li>
+  </ul>
+  <a th:href="@{/quests/new}">Add New Quest</a>
+</body>
+</html>

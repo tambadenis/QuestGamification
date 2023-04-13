@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reward Form</title>
+</head>
+<body>
+  <h1>Reward Form</h1>
+  <form th:object="${reward}" th:action="@{(reward.id ? '/api/rewards/' + ${reward.id} : '/api/rewards')}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{name}" id="name" />
+    <br />
+    <label for="points">Points:</label>
+    <input type="number" th:field="*{points}" id="points" />
+    <br />
+    <input type="submit" value="Save" />
+  </form>
+  <a th:if="${reward.id}" th:href="@{/api/rewards/{id}(id=${reward.id})}">
+    View Reward
+  </a>
+  <a th:href="@{/api/rewards}">
+    Back to Rewards List
+  </a>
+</body>
+</html>

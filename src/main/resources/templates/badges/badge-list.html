@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Badge List</title>
+</head>
+<body>
+  <h1>Badge List</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <!-- Alte coloane afișate în tabel -->
+    </tr>
+    <tr th:each="badge : ${badges}">
+      <td th:text="${badge.id}"></td>
+      <td th:text="${badge.name}"></td>
+      <td th:text="${badge.description}"></td>
+      <!-- Alte celule afișate în tabel -->
+    </tr>
+  </table>
+  <!-- Buton pentru a crea un nou badge -->
+  <a th:href="@{/api/badges/new}">Create New Badge</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reward Details</title>
+</head>
+<body>
+  <h1>Reward Details</h1>
+  <p>ID: <span th:text="${reward.id}"></span></p>
+  <p>Name: <span th:text="${reward.name}"></span></p>
+  <p>Points: <span th:text="${reward.points}"></span></p>
+  <a th:href="@{/api/rewards}">Back to Rewards List</a>
+</body>
+</html>

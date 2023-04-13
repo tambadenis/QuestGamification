@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Quest Details</title>
+</head>
+<body>
+  <h1 th:text="${quest.name}"></h1>
+  <p th:text="${quest.description}"></p>
+  <p th:text="${quest.points}"></p>
+  <a th:href="@{/quests}">Back to Quest List</a>
+  <a th:href="@{/quests/{id}/edit(id=${quest.id})}">Edit Quest</a>
+  <a th:href="@{/quests/{id}/delete(id=${quest.id})}">Delete Quest</a>
+</body>
+</html>

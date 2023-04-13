@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Details</title>
+  <!-- Adăugăm link-ul către fișierele CSS Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h1>User Details</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>ID:</h4>
+      <p th:text="${user.id}"></p>
+    </div>
+    <div class="col-md-6">
+      <h4>Name:</h4>
+      <p th:text="${user.username}"></p>
+    </div>
+  </div>
+  <!-- Add other fields as needed -->
+  <!-- Add other content as needed -->
+</div>
+
+<!-- Adăugăm script-urile JavaScript Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Add other content as needed -->
+</body>
+</html>

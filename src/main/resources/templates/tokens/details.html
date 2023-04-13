@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Token Details</title>
+</head>
+  <body>
+  <h1>Token Details</h1>
+  <p>ID: <span th:text="${token.id}"></span></p>
+  <p>Value: <span th:text="${token.value}"></span></p>
+  <a th:href="@{/api/tokens}">Back to Token List</a>
+</body>
+</html>

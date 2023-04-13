@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Quest Form</title>
+</head>
+<body>
+  <h1 th:if="${quest.id == null}">Create New Quest</h1>
+  <h1 th:if="${quest.id != null}">Edit Quest</h1>
+  <form th:object="${quest}" th:action="@{/quests}" method="post">
+    <input type="hidden" th:if="${quest.id != null}" th:field="*{id}">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}">
+    <label>Description:</label>
+    <input type="text" th:field="*{description}">
+    <label>Points:</label>
+    <input type="number" th:field="*{points}">
+    <input type="submit" value="Save">
+  </form>
+  <a th:href="@{/quests}">Back to Quest List</a>
+</body>
+</html>

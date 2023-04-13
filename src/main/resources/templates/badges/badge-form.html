@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Badge Form</title>
+</head>
+<body>
+<h1>Badge Form</h1>
+  <form th:object="${badge}" th:action="@{(isNewBadge ? '/api/badges' : '/api/badges/' + ${badge.id})}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" />
+    <br />
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" />
+    <br />
+    <input type="submit" value="Save" />
+  </form>
+  <a th:if="${isNewBadge}" th:href="@{/api/badges}">
+    Back to Badge List
+  </a>
+  <a th:unless="${isNewBadge}" th:href="@{/api/badges/{id}/edit(id=${badge.id})}">
+    Edit Badge
+  </a>
+  <a th:unless="${isNewBadge}" th:href="@{/api/badges/{id})(id=${badge.id})}" th:data-method="delete" th:data-confirm="Are you sure?">
+    Delete Badge
+  </a>
+</body>
+</html>
